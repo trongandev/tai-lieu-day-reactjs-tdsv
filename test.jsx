@@ -1,27 +1,21 @@
-import React, { useState } from "react"
+import { useFormik } from "formik"
+import * as Yup from "yup"
 
-export default function Counter() {
-    // Khởi tạo state với giá trị ban đầu là 0
-    const [count, setCount] = useState(0)
-
-    // Hàm để tăng giá trị count
-    const increment = () => {
-        setCount(count + 1)
-    }
-
-    // Hàm để giảm giá trị count
-    const decrement = () => {
-        if (count < 0) return
-        setCount(count - 1)
-    }
-
-    setCount((prevCount) => prevCount + 1)
+export default function test() {
+    const formik = useFormik({
+        initialValues: { email: "" },
+        validationSchema: Yup.object({
+            email: Yup.string().email("Email sai").required("Bắt buộc"),
+        }),
+        onSubmit: (values) => {
+            console.log("values")
+        },
+    })
 
     return (
-        <div>
-            <h1>Count: {count}</h1>
-            <button onClick={increment}>Increase</button>
-            <button onClick={decrement}>Decrease</button>
-        </div>
+        <>
+            <input name="email" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} />
+            {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
+        </>
     )
 }

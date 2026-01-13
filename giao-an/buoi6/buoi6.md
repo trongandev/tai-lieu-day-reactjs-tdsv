@@ -48,9 +48,32 @@ Giả sử có state `todos` là mảng object.
 
 ## 3. Bài tập tại lớp
 
--   Sửa nội dung (Update nâng cao): Khi bấm vào chữ (text) sẽ hiển thị ô input để sửa nội dung công việc. Khi nhấn Enter sẽ lưu lại nội dung mới.
+1. **Mở rộng Todo List với các tính năng nâng cao:**
 
-## 3. Bài tập về nhà
+-   Sửa nội dung (Update nâng cao): Khi bấm vào chữ (text) sẽ hiển thị ô input để sửa nội dung công việc. Khi nhấn Enter sẽ lưu lại nội dung mới.
+-   Lọc công việc: Thêm 3 nút "Tất cả", "Chưa hoàn thành", "Đã hoàn thành" để lọc hiển thị công việc theo trạng thái.
+-   Lưu trữ vào Local Storage: Khi thêm/xóa/sửa công việc thì lưu lại vào Local Storage. Khi load trang thì lấy dữ liệu từ Local Storage ra.
+-   Đếm số công việc: Hiển thị số lượng công việc chưa hoàn thành ở trên đầu danh sách.
+-   Thêm ngày tạo công việc: Mỗi công việc có thêm thuộc tính `createdAt` (ngày giờ tạo). Hiển thị ngày tạo bên cạnh công việc.
+
+2. **Quản lý đăng ký:**
+
+-   Tạo form đăng nhập và đăng ký với các trường (Username, Email, Password, Confirm Password).
+-   Validate dữ liệu nhập vào:
+    -   Username không được để trống.
+    -   Username phải có ít nhất 5 ký tự.
+    -   Email phải đúng định dạng.
+    -   Password phải có ít nhất 6 ký tự.
+    -   Password phải chứa ít nhất 1 chữ số.
+    -   Password phải chứa ít nhất 1 chữ cái hoa.
+    -   Password và Confirm Password phải khớp nhau.
+-   Hiển thị thông báo lỗi ngay bên dưới ô input khi người dùng nhập sai (Gợi ý: sử dụng hàm onBlur() của input và hàm onChange()).
+-   Nút Submit chỉ hoạt động (hoặc xử lý) khi không còn lỗi.
+-   Khi đăng ký thành công, lưu thông tin người dùng vào Local Storage.
+-   Hiển thị danh sách người dùng đã đăng ký bên dưới form được load từ LocalStorage.
+-   Tích hợp chức năng CRUD cho danh sách người dùng đã đăng ký (Xóa, Sửa thông tin người dùng).
+
+## 4. Bài tập về nhà
 
 1.  **Quản lý sinh viên:**
     -   Danh sách sinh viên (Mã SV, Tên, Điểm).

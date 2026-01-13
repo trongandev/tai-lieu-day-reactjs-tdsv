@@ -61,6 +61,12 @@
     -   Bấm tab nào thì hiện nội dung tương ứng bên dưới.
     -   Tab đang chọn phải có màu nổi bật (Active state).
 2.  **Accordion:**
+
     -   Danh sách các câu hỏi thường gặp (FAQ).
     -   Bấm vào câu hỏi -> Xổ ra câu trả lời.
     -   Bấm câu khác -> Thu câu cũ lại (hoặc giữ nguyên tùy logic).
+
+3.  **Form Đăng ký đơn giản:**
+    -   2 ô Input: Tên và Email.
+    -   Nút Submit.
+    -   Khi submit, hiện alert với nội dung "Chào [Tên], email của bạn là [Email]".
