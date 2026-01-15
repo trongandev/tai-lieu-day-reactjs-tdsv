@@ -117,7 +117,11 @@ Cài đặt font chữ JetBrains Mono:
     -   Mô tả có màu xám nhạt (`text-gray-600`).
     -   Ảnh có kích thước cố định (`w-full h-48`).
 
-**Bài 3: Tạo trang Landing Page đơn giản:**
+**Bài 3: Lịch đá bóng**
+
+-   Tạo giao diện hiển thị lịch thi đấu bóng đá với các trận đấu sắp tới.
+
+**Bài 4: Tạo trang Landing Page đơn giản:**
 
 -   Header (Logo + Menu).
 -   Banner (Ảnh nền + Text to).
