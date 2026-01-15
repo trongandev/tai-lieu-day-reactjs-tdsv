@@ -16,9 +16,9 @@
 4. **React Developer Tools**
     - Cung cấp các công cụ để kiểm tra và gỡ lỗi các thành phần React trong trình duyệt.
     - [Link Extension](https://marketplace.visualstudio.com/items?itemName=msjsdiag.vscode-react-native)
-5. **Bracket Pair Colorizer 2**
+5. **Bracket Pair Colorization Toggler**
     - Giúp bạn dễ dàng nhận biết các cặp dấu ngoặc trong mã nguồn bằng cách tô màu khác nhau.
-    - [Link Extension](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
+    - [Link Extension](https://marketplace.visualstudio.com/items?itemName=dzhavat.bracket-pair-toggler)
 6. **Path Intellisense**
     - Tự động hoàn thành đường dẫn tệp khi bạn nhập, giúp tiết kiệm
       thời gian khi làm việc với các tệp và thư mục. - [Link Extension](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
