@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 import InputField from "./InputField"
+import SelectField from "./SelectField"
 
 export default function BaiTap2() {
     const [provinces, setProvinces] = useState([])
     const [districts, setDistricts] = useState([])
     const [wards, setWards] = useState([])
-
+    const [json, setJson] = useState("")
     // Fetch provinces
     useEffect(() => {
         fetch("https://provinces.open-api.vn/api/p/")
@@ -43,7 +44,7 @@ export default function BaiTap2() {
         validationSchema,
         onSubmit: (values) => {
             console.log("Form data:", values)
-            alert("Đặt hàng thành công!")
+            setJson(values)
         },
     })
 
@@ -76,9 +77,8 @@ export default function BaiTap2() {
     }, [formik.values.district])
 
     return (
-        <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
+        <div className="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-6 text-gray-800">Thông tin đặt hàng</h2>
-
             <form onSubmit={formik.handleSubmit} className="space-y-4">
                 {/* Name */}
                 <InputField name="name" label="Họ và tên" formik={formik} />
@@ -87,53 +87,17 @@ export default function BaiTap2() {
                 <InputField name="phone" label="Số điện thoại" formik={formik} />
 
                 {/* Province */}
-                <InputField name="province" label="Tỉnh/Thành phố" formik={formik} />
 
-                {/* District */}
-                <InputField name="district" label="Quận/Huyện" formik={formik} />
-                <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Quận/Huyện <span className="text-red-500">*</span>
-                    </label>
-                    <select
-                        name="district"
-                        value={formik.values.district}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        disabled={!formik.values.province}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
-                    >
-                        <option value="">Chọn quận/huyện</option>
-                        {districts.map((district) => (
-                            <option key={district.code} value={district.code}>
-                                {district.name}
-                            </option>
-                        ))}
-                    </select>
-                    {formik.touched.district && formik.errors.district && <p className="text-red-500 text-sm mt-1">{formik.errors.district}</p>}
-                </div>
+                <div className="grid grid-cols-3 gap-2 items-center">
+                    <SelectField name="province" label="Tỉnh/Thành phố" data={provinces} formik={formik} disabled={false} />
 
-                {/* Ward */}
-                <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Phường/Xã <span className="text-red-500">*</span>
-                    </label>
-                    <select
-                        name="ward"
-                        value={formik.values.ward}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        disabled={!formik.values.district}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:bg-gray-100"
-                    >
-                        <option value="">Chọn phường/xã</option>
-                        {wards.map((ward) => (
-                            <option key={ward.code} value={ward.code}>
-                                {ward.name}
-                            </option>
-                        ))}
-                    </select>
-                    {formik.touched.ward && formik.errors.ward && <p className="text-red-500 text-sm mt-1">{formik.errors.ward}</p>}
+                    {/* District */}
+
+                    <SelectField name="district" label="Quận/Huyện" data={districts} formik={formik} disabled={!formik.values.province} />
+
+                    {/* Ward */}
+
+                    <SelectField name="ward" label="Phường/Xã" data={wards} formik={formik} disabled={!formik.values.district} />
                 </div>
 
                 {/* Payment Method */}
@@ -171,6 +135,7 @@ export default function BaiTap2() {
                     Đặt hàng
                 </button>
             </form>
+            {json && <pre className="mt-4 p-4 bg-gray-100 rounded-md text-sm overflow-x-auto">{JSON.stringify(json, null, 2)}</pre>}
         </div>
     )
 }

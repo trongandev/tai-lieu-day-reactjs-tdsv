@@ -1,21 +1,17 @@
-import { useFormik } from "formik"
-import * as Yup from "yup"
-
-export default function test() {
-    const formik = useFormik({
-        initialValues: { email: "" },
-        validationSchema: Yup.object({
-            email: Yup.string().email("Email sai").required("Bắt buộc"),
-        }),
-        onSubmit: (values) => {
-            console.log("values")
-        },
-    })
-
+function App() {
     return (
-        <>
-            <input name="email" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} />
-            {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
-        </>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<HomeLayout />}>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about" element={<AboutPage />} />
+                    <Route path="*" element={<NotFound />} />
+                </Route>
+                <Route path="/auth" element={<AuthLayout />}>
+                    <Route path="/auth/login" element={<LoginPage />} />
+                    <Route path="/auth/register" element={<RegisterPage />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     )
 }
