@@ -4,6 +4,16 @@
 
 **Thời lượng:** 90 phút
 
+**Lời mở đầu**
+
+-   Để học reactjs. Chúng ta cần nền tảng HTML, CSS, JavaScript căn bản.
+    Trong dự án này, chúng ta sẽ chuyển từ cách làm việc truyền thống với Razor View trong ASP.NET MVC sang sử dụng ReactJS kết hợp với TailwindCSS. Buổi học này sẽ giúp bạn nắm bắt được sự khác biệt trong tư duy phát triển giao diện người dùng và cách tận dụng tối đa các công cụ hiện đại để xây dựng ứng dụng web nhanh chóng và hiệu quả.
+
+Khóa học này sẽ gồm những gì:
+
+-   Được chia thành 13 buổi học, mỗi buổi kéo dài 90 phút.
+-   Mỗi buổi sẽ bao gồm phần lý thuyết và thực hành để bạn có thể áp dụng ngay kiến thức đã học. Do mọi người đã làm việc cả ngày rồi mà nói lý thuyết nhiều quá sẽ rất mệt và buồn ngủ, vì vậy em sẽ nói ít lý thuyết lại. Thay vào đó sẽ tập trung vào thực hành nhiều hơn.
+
 ---
 
 ## 1. Giới thiệu & So sánh tư duy (15 phút)
@@ -96,12 +106,19 @@ Cài đặt font chữ JetBrains Mono:
     -   Ảnh tròn (`rounded-full`).
     -   Nút bấm có hiệu ứng hover (`hover:bg-blue-600`).
 
----
+**Bai 2: Danh sách bài viết tin tức (Tĩnh)**
 
-## 5. Bài tập về nhà
+-   Tạo một danh sách gồm 3 bài viết, mỗi bài có tiêu đề, mô tả ngắn và ảnh đại diện.
+-   Yêu cầu:
+    -   Sử dụng `flex` để bố trí ảnh và nội dung bên cạnh nhau.
+    -   Các bài viết sẽ có (`flex-1`) để chia đều không gian.
+    -   Thêm khoảng cách giữa các bài viết (`gap-5`).
+    -   Tiêu đề bài viết in đậm (`font-bold`).
+    -   Mô tả có màu xám nhạt (`text-gray-600`).
+    -   Ảnh có kích thước cố định (`w-full h-48`).
 
-1.  **Tạo trang Landing Page đơn giản:**
-    -   Header (Logo + Menu).
-    -   Banner (Ảnh nền + Text to).
-    -   Footer (Copyright).
-    -   **Yêu cầu:** Chỉ dùng TailwindCSS, không viết thêm CSS custom.
+**Bài 3: Tạo trang Landing Page đơn giản:**
+
+-   Header (Logo + Menu).
+-   Banner (Ảnh nền + Text to).
+-   Footer (Copyright).
