@@ -38,9 +38,7 @@ Khóa học này sẽ gồm những gì:
 
 1.  **Tạo project:** `npm create vite@latest my-app -- --template react`
 2.  **Cài đặt TailwindCSS:** (Làm theo docs trang chủ Tailwind).
-    -   `npm install -D tailwindcss postcss autoprefixer`
-    -   `npx tailwindcss init -p`
-    -   Config `tailwind.config.js`.
+    -   `npm install tailwindcss @tailwindcss/vite`
     -   Add directives vào `index.css`.
 
 ---
@@ -93,6 +91,11 @@ Cài đặt font chữ JetBrains Mono:
 -   Truy cập vào cài đặt VSCode: `File` -> `Preferences` -> `Settings` -> Tìm `Font Family` -> Thêm `JetBrains Mono` vào đầu tiên.
 -   Truy cập vào cài đặt, tìm Editor: Font Ligatures, bấm vào edit in settings.json, thêm dòng `"editor.fontLigatures": true`.
 -   Khởi động lại VSCode.
+
+Cài đặt Prettier:
+
+-   Truy cập vào cài đặt VSCode: `File` -> `Preferences` -> `Settings` -> Tìm `Default Formatter` -> Chọn `Prettier - Code formatter`.
+-   Tìm `Format On Save` -> Bật tùy chọn này.
 
 ---
 
