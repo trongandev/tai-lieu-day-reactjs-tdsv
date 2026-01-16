@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
+/* Theme Light */
 @theme {
     --color-primary: #3490dc;
     --color-secondary: #ffed4a;
-    --color-third: #e3342f;
-    --color-text: #000000;
-
-    --breakpoint-tablet: 40rem;
-    --breakpoint-laptop: 64rem;
-    --breakpoint-desktop: 80rem;
+    --color-background: #fff;
 }
 
+/* Theme Dark */
 @variant dark (&:is(.dark, .dark *));
 
 .dark {
     --color-primary: #05081c;
     --color-secondary: #f66d9b;
-    --color-third: #9561e2;
-    --color-text: #ffffff;
+    --color-background: #000;
+}
+
+.animate-spin {
+    animation: spin 1.3s linear infinite;
 }
