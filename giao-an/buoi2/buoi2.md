@@ -39,30 +39,35 @@ src/
 
 ## 3. Bài tập thực hành tại lớp (40 phút)
 
+**Refactor:** Xem lại code cũ, chỗ nào lặp lại code HTML giống nhau -> Tách thành Component.
+
 **Bài 1: Tách Component từ Buổi 1**
 
--   Lấy code `ProfileCard` từ bài tập về nhà Buổi 1.
+**Trong bài tập Profile**
+
 -   Tách ra thành file `src/components/ProfileCard.jsx`.
 -   Import và sử dụng lại trong `App.jsx` 3 lần.
+-   Mỗi ProfileCard sẽ nằm trên hàng ngang, dùng `flex` để căn chỉnh.
 
-**Bài 2: Xây dựng UI Kit cơ bản**
+**Trong bài tập News, Lịch đá bóng**
 
--   Tạo thư mục `src/components/ui`.
--   Tạo component `Button.jsx`: Style mặc định đẹp (Tailwind).
--   Tạo component `Input.jsx`: Style input có border, padding.
--   Sử dụng chúng để tạo một Form đăng nhập đơn giản (chưa cần xử lý logic).
+-   Tách ra thành file `src/components/NewsCard.jsx`.
+-   Tách ra thành file `src/components/FootballSchedule.jsx`.
+-   Import và sử dụng lại trong `App.jsx` 3 lần đối với NewsCard.
+-   Import và sử dụng lại trong `App.jsx` 5 lần đối với FootballSchedule.
+-   Mỗi NewsCard, FootballSchedule sẽ nằm trên hàng dọc, cách nhau 20px.
+-   Gợi ý: dùng `space-y-5` hoặc xài `flex` với `flex-col` và `gap-5`.
 
-**Bài 3: Layout Dashboard**
+**Bài 2: Layout Dashboard**
 
 -   Tạo các component: `Sidebar`, `Header`, `MainContent`.
--   Ghép chúng lại trong `App.jsx` sử dụng Flexbox để chia cột (Sidebar bên trái, còn lại bên phải).
+-   Ghép chúng lại trong `App.jsx` sử dụng Flexbox để chia cột.
+-   Lưu ý: Sidebar bên trái, còn lại bên phải
+
+**Bài 3: Xây dựng UI Kit cơ bản**
+
+-   Tạo thư mục `src/components/ui`.
+-   Tạo component `Button.jsx`, `Input.jsx`, `Label.jsx`: Style làm sao cho đẹp.
+-   Sử dụng chúng để tạo một Form đăng nhập đơn giản (chưa cần xử lý logic).
 
 ---
-
-## 4. Bài tập về nhà
-
-1.  **Hoàn thiện Layout Dashboard:**
-    -   Thêm nội dung giả vào `MainContent`.
-    -   Sidebar có các item menu (Dashboard, Users, Settings).
-    -   Header có Avatar và thanh tìm kiếm.
-2.  **Refactor:** Xem lại code cũ, chỗ nào lặp lại code HTML giống nhau -> Tách thành Component.

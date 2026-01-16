@@ -1,5 +1,6 @@
 import "./App.css"
 import ProductItem from "./components/ProductItem"
+import Welcome from "./components/Welcome"
 
 function App() {
     const products = [
@@ -13,6 +14,8 @@ function App() {
             {products.map((p) => (
                 <ProductItem key={p.id} data={p} />
             ))}
+
+            <Welcome name="Trọng An" role="Giáo viên" />
         </div>
     )
 }

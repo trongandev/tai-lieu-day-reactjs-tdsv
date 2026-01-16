@@ -1,17 +1,19 @@
-function ComponentTest() {
+function Welcome({ name, role }) {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<HomeLayout />}>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/about" element={<AboutPage />} />
-                    <Route path="*" element={<NotFound />} />
-                </Route>
-                <Route path="/auth" element={<AuthLayout />}>
-                    <Route path="/auth/login" element={<LoginPage />} />
-                    <Route path="/auth/register" element={<RegisterPage />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <h1>
+            Xin chào {name}, Chức vụ: {role}
+        </h1>
     )
 }
+
+;<Welcome name="Trọng An" role="Giáo viên" />
+
+function Welcome(props) {
+    return (
+        <h1>
+            Xin chào {props.name}, Chức vụ: {props.role}
+        </h1>
+    )
+}
+
+;<Welcome name="Trọng An" role="Giáo viên" />
