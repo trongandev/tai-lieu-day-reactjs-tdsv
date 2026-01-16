@@ -18,11 +18,11 @@ export default function HomeLayout() {
     }
     return (
         <div>
-            <div className="flex justify-between items-center gap-5 w-full bg-gray-200 py-5 px-10">
-                <Link to="/" className="text-blue-600 font-extrabold text-2xl">
+            <div className="flex items-center justify-between w-full gap-5 px-10 py-5 bg-gray-200">
+                <Link to="/" className="text-2xl font-extrabold text-blue-600">
                     AuthApp
                 </Link>
-                <div className="flex gap-5 items-center">
+                <div className="flex items-center gap-5">
                     <Link to="/" className={`${path === "/" ? "text-red-500" : ""}`}>
                         Home
                     </Link>
@@ -51,7 +51,7 @@ export default function HomeLayout() {
                     </Link>
                 )}
             </div>
-            <div className="py-10 w-full md:max-w-7xl mx-auto">
+            <div className="w-full py-10 mx-auto md:max-w-7xl">
                 <Outlet />
             </div>
         </div>

@@ -26,7 +26,7 @@ export default function Bai1() {
                 >
                     -
                 </button>
-                <p className="text-xl font-semibold  h-12 w-12 flex items-center justify-center rounded-md bg-gray-200 border border-gray-300 transition-all duration-300">{count}</p>
+                <p className="flex items-center justify-center w-12 h-12 text-xl font-semibold transition-all duration-300 bg-gray-200 border border-gray-300 rounded-md">{count}</p>
 
                 <button
                     onClick={increment}
@@ -35,7 +35,7 @@ export default function Bai1() {
                     +
                 </button>
             </div>
-            <div className="text-center ">{error && <p className="text-red-500 mt-5 text-sm">{error}</p>}</div>
+            <div className="text-center ">{error && <p className="mt-5 text-sm text-red-500">{error}</p>}</div>
         </>
     )
 }

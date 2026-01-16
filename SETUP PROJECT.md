@@ -23,13 +23,13 @@ npm -v
 Mở terminal và chạy lệnh sau để tạo một dự án React mới sử dụng Vite:
 
 ```bash
-npm create vite@latest my-react-app -- --template react
+npm create vite buoi1 -- --template react
 ```
 
-Thay `my-react-app` bằng tên dự án bạn muốn. Sau khi lệnh hoàn tất, di chuyển vào thư mục dự án:
+Thay `buoi1` bằng tên dự án bạn muốn. Sau khi lệnh hoàn tất, di chuyển vào thư mục dự án:
 
 ```bash
-cd my-react-app
+cd buoi1
 ```
 
 ## Bước 3: Cài đặt TailwindCSS

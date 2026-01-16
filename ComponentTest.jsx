@@ -1,19 +1,23 @@
-function Welcome({ name, role }) {
-    return (
-        <h1>
-            Xin chào {name}, Chức vụ: {role}
-        </h1>
-    )
+// Default Function
+const handleSubmit = (e) => {
+    e.preventDefault()
+    alert("Form submitted!")
 }
 
-;<Welcome name="Trọng An" role="Giáo viên" />
+return (
+    <form onSubmit={handleSubmit}>
+        <button type="submit">Submit</button>
+    </form>
+)
 
-function Welcome(props) {
-    return (
-        <h1>
-            Xin chào {props.name}, Chức vụ: {props.role}
-        </h1>
-    )
+// Arrow Function
+const handleSubmit = (e) => {
+    e.preventDefault()
+    alert("Form submitted!")
 }
 
-;<Welcome name="Trọng An" role="Giáo viên" />
+return (
+    <form onSubmit={(e) => handleSubmit(e)}>
+        <button type="submit">Submit</button>
+    </form>
+)
