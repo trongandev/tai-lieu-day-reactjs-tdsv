@@ -1,42 +1,35 @@
-# BUỔI 11: TỔNG ÔN & BEST PRACTICES (UX/UI)
+# BUỔI 11: PROJECT E-COMMERCE (PHẦN 1: SETUP & LISTING)
 
-**Mục tiêu:** Review kiến thức, tối ưu trải nghiệm người dùng (UX) bằng các kỹ thuật hiện đại.
+**Mục tiêu:** Bắt đầu xây dựng ứng dụng thương mại điện tử hoàn chỉnh.
 
 **Thời lượng:** 90 phút
 
 ---
 
-## 1. Review kiến thức (30 phút)
+## 1. Khởi tạo Project (20 phút)
 
--   Component, Props, State.
--   Lifecycle, Hooks (useState, useEffect).
--   Routing, Context.
-
----
-
-## 2. Best Practices UX/UI (50 phút)
-
-**1. Loading State & Skeleton**
-
--   Thay vì hiện chữ "Loading...", hãy hiện khung xương (Skeleton) giống Facebook/Youtube.
--   **Thực hành:** Tạo component `Skeleton` đơn giản (div màu xám, animate pulse) và áp dụng vào danh sách sản phẩm khi đang fetch API.
-
-**2. Feedback hành động (Toast/Modal)**
-
--   Khi xóa/lưu thành công -> Hiện thông báo nhỏ góc màn hình (Toast).
--   Khi xóa dữ liệu quan trọng -> Hiện Modal xác nhận.
--   **Thực hành:**
-    -   Tích hợp ShadcnUI Dialog (Modal).
-    -   Làm chức năng: Bấm nút Xóa -> Hiện Modal -> Bấm Đồng ý mới thực sự xóa.
-
-**3. Empty State**
-
--   Khi danh sách rỗng, đừng để trắng trơn. Hãy hiện hình ảnh vui nhộn "Chưa có dữ liệu".
+- Cấu trúc thư mục chuẩn: `components`, `pages`, `context`, `hooks`, `utils`.
+- Cài đặt thư viện: `react-router-dom`, `axios`, `formik`, `yup`, `clsx`, `tailwindcss`, `@tailwindcss/vite`.
+- Sử dụng ShadcnUI cho UI components.
+- Setup Mock API (dùng `json-server` hoặc `mockapi.io`) với resource `products`.
 
 ---
 
-## 3. Bài tập về nhà
+## 2. Xây dựng Layout & Trang chủ (30 phút)
 
-1.  **Chuẩn bị cho Project lớn:**
-    -   Tìm kiếm ý tưởng giao diện E-commerce (tham khảo Shopee, Tiki).
-    -   Setup sẵn project mới, cài đặt các thư viện cần thiết (Router, Axios, Tailwind, ShadcnUI...).
+- Thiết kế gia diện đẹp mắt, thân thiện.
+- **Layout:** Header (Logo, Search, Cart Icon, User), Footer.
+- **Home Page:** Banner quảng cáo, Danh sách sản phẩm nổi bật.
+
+---
+
+## 3. Trang Danh sách sản phẩm (40 phút)
+
+- Fetch API lấy danh sách sản phẩm.
+- Hiển thị dạng Grid.
+- **Tính năng:**
+    - Lọc theo danh mục (Category).
+    - Sắp xếp theo giá (Tăng/Giảm).
+    - Skeleton loading khi đang tải.
+- Hoàn thiện giao diện trang danh sách.
+- Thêm chức năng tìm kiếm sản phẩm (Client-side filter).

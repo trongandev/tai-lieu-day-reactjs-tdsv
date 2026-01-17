@@ -1,10 +1,9 @@
-import React, { createContext, useState } from "react"
+import React from "react"
 
-// Tạo context
-export const MyContext = createContext()
+function TestComponent({ className, children }) {
+    return <div className={className}>{children}</div>
+}
 
-export const MyProvider = ({ children }) => {
-    const [state, setState] = useState({})
-
-    return <MyContext.Provider value={{ state, setState }}>{children}</MyContext.Provider>
+function App() {
+    return <TestComponent className="text-blue-500">Hello from App</TestComponent>
 }

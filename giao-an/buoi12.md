@@ -1,38 +1,41 @@
-# BUỔI 12: PROJECT E-COMMERCE (PHẦN 1: SETUP & LISTING)
+# BUỔI 13: PROJECT E-COMMERCE (PHẦN 2: CART & LOCALSTORAGE)
 
-**Mục tiêu:** Bắt đầu xây dựng ứng dụng thương mại điện tử hoàn chỉnh.
+**Mục tiêu:** Xử lý logic Giỏ hàng - tính năng quan trọng nhất của E-commerce.
 
 **Thời lượng:** 90 phút
 
 ---
 
-## 1. Khởi tạo Project (20 phút)
+## 1. Tư duy Giỏ hàng (15 phút)
 
--   Cấu trúc thư mục chuẩn: `components`, `pages`, `context`, `hooks`, `utils`.
--   Cài đặt thư viện: `react-router-dom`, `axios`, `formik`, `yup`, `clsx`, `tailwind-merge` (cho Shadcn).
--   Setup Mock API (dùng `json-server` hoặc `mockapi.io`) với resource `products`.
-
----
-
-## 2. Xây dựng Layout & Trang chủ (30 phút)
-
--   **Layout:** Header (Logo, Search, Cart Icon, User), Footer.
--   **Home Page:** Banner quảng cáo, Danh sách sản phẩm nổi bật.
+-   Giỏ hàng là một mảng các item: `{ productId, quantity, price, ... }`.
+-   Cần lưu ở Global State (Context) để truy cập từ mọi nơi (Header, ProductDetail).
+-   Cần lưu vào `localStorage` để F5 không mất.
 
 ---
 
-## 3. Trang Danh sách sản phẩm (40 phút)
+## 2. Xây dựng CartContext (45 phút)
 
--   Fetch API lấy danh sách sản phẩm.
--   Hiển thị dạng Grid.
--   **Tính năng:**
-    -   Lọc theo danh mục (Category).
-    -   Sắp xếp theo giá (Tăng/Giảm).
-    -   Skeleton loading khi đang tải.
+-   **State:** `cartItems`.
+-   **Actions:**
+    -   `addToCart(product)`: Nếu có rồi thì tăng số lượng, chưa có thì push vào.
+    -   `removeFromCart(id)`: Xóa item.
+    -   `updateQuantity(id, amount)`: Tăng giảm số lượng.
+    -   `clearCart()`: Xóa hết.
+-   **Sync LocalStorage:** Dùng `useEffect` để mỗi khi `cartItems` thay đổi -> lưu vào Storage.
+
+---
+
+## 3. Thực hành UI Giỏ hàng (30 phút)
+
+-   Trang `/cart`:
+    -   Hiển thị bảng danh sách sản phẩm đã chọn.
+    -   Cho phép sửa số lượng, xóa.
+    -   Tính tổng tiền (Total Price).
 
 ---
 
 ## 4. Bài tập về nhà
 
--   Hoàn thiện giao diện trang danh sách.
--   Thêm chức năng tìm kiếm sản phẩm (Client-side filter).
+-   Thêm hiệu ứng bay vào giỏ hàng (Animation) khi bấm nút "Mua ngay".
+-   Hiển thị số lượng item trên icon giỏ hàng ở Header.

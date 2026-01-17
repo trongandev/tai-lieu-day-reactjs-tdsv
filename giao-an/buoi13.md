@@ -1,41 +1,44 @@
-# BUỔI 13: PROJECT E-COMMERCE (PHẦN 2: CART & LOCALSTORAGE)
+# BUỔI 14: PROJECT E-COMMERCE (PHẦN 3: CHECKOUT & ADMIN)
 
-**Mục tiêu:** Xử lý logic Giỏ hàng - tính năng quan trọng nhất của E-commerce.
+**Mục tiêu:** Hoàn tất quy trình đặt hàng và trang quản trị đơn giản.
 
 **Thời lượng:** 90 phút
 
 ---
 
-## 1. Tư duy Giỏ hàng (15 phút)
+## 1. Trang Checkout (Thanh toán) (40 phút)
 
--   Giỏ hàng là một mảng các item: `{ productId, quantity, price, ... }`.
--   Cần lưu ở Global State (Context) để truy cập từ mọi nơi (Header, ProductDetail).
--   Cần lưu vào `localStorage` để F5 không mất.
-
----
-
-## 2. Xây dựng CartContext (45 phút)
-
--   **State:** `cartItems`.
--   **Actions:**
-    -   `addToCart(product)`: Nếu có rồi thì tăng số lượng, chưa có thì push vào.
-    -   `removeFromCart(id)`: Xóa item.
-    -   `updateQuantity(id, amount)`: Tăng giảm số lượng.
-    -   `clearCart()`: Xóa hết.
--   **Sync LocalStorage:** Dùng `useEffect` để mỗi khi `cartItems` thay đổi -> lưu vào Storage.
+-   Sử dụng **Formik + Yup** để làm form thông tin giao hàng.
+-   Hiển thị lại tóm tắt đơn hàng (Tổng tiền).
+-   **Xử lý Submit:**
+    -   Validate thông tin.
+    -   Tạo đơn hàng (gửi API hoặc lưu vào localStorage `orders`).
+    -   Xóa sạch giỏ hàng (`clearCart`).
+    -   Chuyển hướng sang trang "Cảm ơn".
 
 ---
 
-## 3. Thực hành UI Giỏ hàng (30 phút)
+## 2. Trang Admin (Quản lý sản phẩm) (40 phút)
 
--   Trang `/cart`:
-    -   Hiển thị bảng danh sách sản phẩm đã chọn.
-    -   Cho phép sửa số lượng, xóa.
-    -   Tính tổng tiền (Total Price).
+-   Route: `/admin/products`.
+-   Bảng danh sách sản phẩm (CRUD).
+-   Form thêm/sửa sản phẩm.
+-   **Yêu cầu:**
+    -   Xóa phải có Modal xác nhận (ShadcnUI).
+    -   Thêm/Sửa thành công phải có Toast thông báo.
 
 ---
 
-## 4. Bài tập về nhà
+## 3. Tổng kết & Review (10 phút)
 
--   Thêm hiệu ứng bay vào giỏ hàng (Animation) khi bấm nút "Mua ngay".
--   Hiển thị số lượng item trên icon giỏ hàng ở Header.
+-   Review lại toàn bộ luồng đi của ứng dụng.
+-   Đóng gói (Build) project: `npm run build`.
+-   Hướng dẫn deploy cơ bản (Vercel/Netlify).
+
+---
+
+## 4. Bài tập phát triển thêm (Sau khóa học)
+
+-   Tích hợp thanh toán online (Momo/Stripe - Sandbox).
+-   Làm chức năng Đăng nhập/Đăng ký thật (kết nối Firebase hoặc Backend thật).
+-   Chức năng Lịch sử đơn hàng (My Orders).

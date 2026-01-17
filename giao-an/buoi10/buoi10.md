@@ -8,36 +8,115 @@
 
 ## 1. Context API là gì? (20 phút)
 
--   Giải quyết vấn đề "Prop Drilling" (truyền props qua quá nhiều cấp).
--   **AuthContext:** Lưu trữ `user`, `isLoggedIn`, hàm `login`, `logout`.
+- Giải quyết vấn đề "Prop Drilling" (truyền props qua quá nhiều cấp).
+- **AuthContext:** Lưu trữ `user`, `isLoggedIn`, hàm `login`, `logout`.
+- Các component con có thể truy cập thông tin user mà không cần truyền props.
+- Nhiệm vụ của bài, Yêu cầu async data user sau khi đăng nhập cho tất cả component.
+  **Cấu trúc Page:**
+
+```
+Page
+ ├── CHome.tsx
+ │     └── CHeader.tsx
+ └── CLogin.tsx
+```
+
+**Cú pháp tạo Context:**
+
+```tsx
+// src/contexts/userContext.tsx
+/* eslint-disable react-refresh/only-export-components */
+import { createContext, useContext, useState } from "react"
+
+interface User {
+    username: string
+    password: string
+}
+
+interface UserContextType {
+    user: User | null
+    login: (newUser: User) => void
+    logout: () => void
+}
+
+// tạo context
+const UserContext = createContext<UserContextType | null>(null)
+// tạo provider cho UserContext
+export const UserProvider = ({ children }: { children: React.ReactNode }) => {
+    const [user, setUser] = useState<User | null>(null)
+
+    const login = (newUser: User) => {
+        setUser(newUser)
+    }
+
+    const logout = () => {
+        setUser(null)
+    }
+
+    return <UserContext.Provider value={{ user, login, logout }}>{children}</UserContext.Provider>
+}
+
+export const useUser = () => {
+    return useContext(UserContext)
+}
+```
+
+**Đặt Provider ở cấp cao nhất:**
+
+```tsx
+// src/main.tsx
+import { StrictMode } from "react"
+import { createRoot } from "react-dom/client"
+import "./index.css"
+import App from "./App.tsx"
+import { UserProvider } from "./contexts/userContext.tsx"
+
+createRoot(document.getElementById("root")!).render(
+    <StrictMode>
+        <UserProvider>
+            <App />
+        </UserProvider>
+    </StrictMode>,
+)
+```
+
+**Sử dụng Context trong component:**
+
+```tsx
+import { useUser } from "../contexts/userContext.tsx"
+const { user, login, logout } = useUser()!
+return (
+    <div>
+        {user ? (
+            <>
+                <div>Xin chào, {user.username}</div>
+                <button onClick={logout}>Logout</button>
+            </>
+        ) : (
+            <>
+                <button onClick={() => login({ username: "user1", password: "pass" })}>Login</button>
+            </>
+        )}
+    </div>
+)
+```
 
 ---
 
 ## 2. Bài tập thực hành tại lớp (60 phút)
 
-**Bài 1: Xây dựng AuthContext**
+**Bài 1: Cải tiến useContext**
 
--   Tạo `AuthContext`.
--   Tạo `AuthProvider` bao bọc toàn bộ App.
--   State: `user` (null hoặc object).
+- Thêm tính năng đăng xuất (logout) trong `CHeader`.
+- Hiển thị icon `Chỉnh sửa` (Edit) ở tên, khi bấm vào icon sẽ hiện form chỉnh sửa username.
 
-**Bài 2: Kết nối Login**
+**Bài 2: Cải tiến UI**
 
--   Trong trang Login: Thay vì chỉ navigate, hãy gọi `login(userData)` từ Context.
--   Sau khi login, `user` trong Context sẽ có dữ liệu.
+- Hiển thị icon <PanelLeft /> trong CHeader, khi bấm vào sẽ toggle đóng mở CLogin.
 
-**Bài 3: Cập nhật Navbar**
+**Bài 3: Giỏ hàng**
 
--   Navbar lắng nghe Context.
--   Nếu `user` có dữ liệu -> Hiện "Xin chào, [Tên]" và nút "Logout".
--   Nếu `user` null -> Hiện nút "Login" / "Register".
--   Nút Logout -> Gọi hàm `logout()` -> Xóa user -> Navbar tự đổi lại.
-
----
-
-## 3. Bài tập về nhà
-
-1.  **Private Route (Bảo vệ Route):**
-    -   Tạo component `PrivateRoute`.
-    -   Nếu chưa login mà cố truy cập `/profile` hoặc `/cart` -> Tự động đá về `/login`.
-    -   Gợi ý: Kiểm tra `user` trong Context, dùng `<Navigate />`.
+- Tạo `CartContext` để quản lý giỏ hàng.
+- Thêm sản phẩm vào giỏ hàng từ trang sản phẩm.
+- Hiển thị số lượng sản phẩm trong giỏ hàng ở header. Sử dụng Popover, Badge của ShadcnUI
+- Tạo trang giỏ hàng để xem và xóa sản phẩm khỏi giỏ hàng.
